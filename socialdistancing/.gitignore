@@ -23,3 +23,6 @@
 /_Main.class
 /Wall.class
 /Building.class
+/BuildingView.class
+/CommunityModel.class
+/SimulationController.class
