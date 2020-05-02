@@ -5,68 +5,59 @@ import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 
-interface Wall{
+public class Wall {
 
-    int x = 0 ;
-     int y = 0;
-     int width = 0;
-    int height = 0;
-   boolean visible = true;
-    Image image = null;
-    boolean vertical = true ;
+    protected int x;
+    protected int y;
+    protected int width;
+    protected int height;
+    protected boolean visible;
+    protected Image image;
+    protected boolean vertical;
 
-    public void createWall(int x, int y, String imageS, boolean vertical) ;
-    //{
+    public Wall(int x, int y, String imageS, boolean vertical) {
 
-//        this.x = x;
-//        this.y = y;
-//        visible = true;
-//        this.vertical = vertical;
-//        loadImage(imageS);
-//        getImageDimensions();
-   // }
+        this.x = x;
+        this.y = y;
+        visible = true;
+        this.vertical = vertical;
+        loadImage(imageS);
+        getImageDimensions();
+    }
 
-    abstract void loadImage(String imageName); 
-//    {
-//
-//        ImageIcon ii = new ImageIcon(imageName);
-//        image = ii.getImage();
-//    }
-//    
-    abstract void getImageDimensions();
-//    {
-//
-//        this.width = image.getWidth(null);
-//        this.height = image.getHeight(null);
-//    }    
+    protected void loadImage(String imageName) {
 
-    abstract Image getImage(); 
-//    {
-//        return image;
-//    }
+        ImageIcon ii = new ImageIcon(imageName);
+        image = ii.getImage();
+    }
 
-    abstract int getX(); 
-//    {
-//        return x;
-//    }
+    protected void getImageDimensions() {
 
-    abstract int getY(); 
-//    {
-//        return y;
-//    }
+        this.width = image.getWidth(null);
+        this.height = image.getHeight(null);
+    }
 
-    abstract boolean isVisible(); 
-//    {
-//        return visible;
-//    }
+    public Image getImage() {
+        return image;
+    }
 
-    abstract void setVisible(Boolean visible); 
-//    {
-//        this.visible = visible;
-//    }
-    
-    abstract Rectangle getBounds(); 
-//    {
-//        return new Rectangle(x, y, width, height);
-//    }
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
 }
